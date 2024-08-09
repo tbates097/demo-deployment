@@ -20,6 +20,9 @@ jobs:
         cd release_package
         zip -r readme_package.zip README.md
 
+    - name: List release_package contents  # Debug step to verify file creation
+      run: ls -la release_package
+
     - name: Upload Release Artifact
       uses: actions/upload-artifact@v4
       with:
@@ -45,8 +48,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v1.0.0  # Modify if using a different versioning scheme
-        release_name: "Release v1.0.0"
+        tag_name: v1.0.1  # Modify if using a different versioning scheme
+        release_name: "Release v1.0.1"
         draft: false
         prerelease: false
 
